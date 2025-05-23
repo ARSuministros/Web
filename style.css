@@ -1,0 +1,612 @@
+/* === Variables CSS Alineadas con el Logo === */
+:root {
+    /* Colores principales del logo AR Suministros */
+    --brand-primary-dark: #1A1A1A; /* Negro/Gris muy oscuro del logo (para texto principal, elementos base) */
+    --brand-accent-red: #B52025;   /* Rojo oscuro del logo (para CTAs, iconos, highlights) */
+    
+    /* Colores secundarios y neutrales */
+    --brand-secondary-red-lighter: #D32F2F; /* Un rojo un poco más claro para hovers o variaciones */
+    --text-dark: #212529;      /* Casi negro para la mayoría del texto */
+    --text-medium: #495057;    /* Gris medio para texto secundario */
+    --text-light: #f8f9fa;     /* Para texto sobre fondos oscuros */
+    --text-on-accent: #ffffff; /* Texto blanco sobre el rojo de acento */
+
+    --bg-body: #ffffff;
+    --bg-light-gray: #f8f9fa;  /* Gris muy claro para fondos de sección alternos */
+    --bg-medium-gray: #e9ecef; /* Gris un poco más oscuro para elementos sutiles */
+    --bg-footer: #1A1D24;   /* Un gris muy oscuro, casi negro, para el footer */
+
+    --border-color: #dee2e6;   /* Borde gris claro estándar */
+    --border-radius-soft: 6px;
+    --border-radius-medium: 8px;
+
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04); /* Sombras más sutiles */
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.08);
+
+    --font-primary: 'Open Sans', sans-serif;
+    --header-height: 115px; /* AJUSTADO: Aumentado para el logo más grande (original 70px) */
+}
+
+/* === Reseteo Básico y Estilos Globales === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.7;
+    color: var(--text-dark);
+    background-color: var(--bg-body);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased; /* Mejor renderizado de fuentes */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--brand-accent-red); /* Enlaces por defecto con el color rojo de acento */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+a:hover, a:focus {
+    color: var(--brand-secondary-red-lighter); /* Rojo un poco más claro al pasar el ratón */
+    text-decoration: none;
+    outline: 2px solid var(--brand-accent-red);
+    outline-offset: 2px;
+}
+a:focus:not(:focus-visible) {
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1.25rem;
+    color: var(--brand-primary-dark); /* Títulos con el color oscuro principal */
+    font-weight: 700;
+    line-height: 1.3;
+}
+h2 {
+    font-size: 2.25rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+
+section {
+    padding: 70px 0; 
+}
+section:nth-of-type(even) {
+    background-color: var(--bg-light-gray);
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul { list-style: none; }
+
+.btn {
+    padding: 12px 28px;
+    margin: 5px;
+    border-radius: var(--border-radius-soft);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-block;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: 1px solid transparent; 
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+.btn:hover, .btn:focus {
+    transform: translateY(-2px); 
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary {
+    background: var(--brand-accent-red);
+    color: var(--text-on-accent);
+    border-color: var(--brand-accent-red);
+}
+.btn-primary:hover, .btn-primary:focus {
+    background: var(--brand-secondary-red-lighter);
+    border-color: var(--brand-secondary-red-lighter);
+    color: var(--text-on-accent);
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background: var(--brand-primary-dark);
+    color: var(--text-on-accent);
+    border-color: var(--brand-primary-dark);
+}
+.btn-secondary:hover, .btn-secondary:focus {
+    background: #333; 
+    border-color: #333;
+    color: var(--text-on-accent);
+    text-decoration: none;
+}
+
+/* === Barra Superior === */
+.top-bar {
+    background: var(--bg-medium-gray);
+    padding: 10px 0;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-medium);
+}
+.top-bar .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.top-bar span i {
+    margin-right: 8px;
+    color: var(--brand-primary-dark); 
+}
+.top-bar a {
+    color: var(--text-medium);
+}
+.top-bar a:hover, .top-bar a:focus {
+    color: var(--brand-accent-red); 
+}
+
+
+/* === Cabecera Principal === */
+.main-header {
+    background: var(--bg-body);
+    height: var(--header-height); /* Usa la variable ajustada */
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.logo img {
+  height: 105px; /* AJUSTADO: 50% más grande (original 70px) */
+  width: auto;
+}
+.main-nav ul { display: flex; }
+.main-nav ul li { margin-left: 30px; }
+.main-nav ul li a {
+    color: var(--text-dark);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 0;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--brand-accent-red);
+    transition: width 0.3s ease;
+}
+.main-nav ul li a:hover::after,
+.main-nav ul li a:focus::after,
+.main-nav ul li a.active::after {
+    width: 100%;
+}
+.main-nav ul li a:hover, .main-nav ul li a:focus {
+    color: var(--brand-primary-dark); 
+    text-decoration: none;
+}
+
+
+/* === Sección Héroe === */
+.hero {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/fabrica-noche.jpg'); 
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: var(--text-light);
+  padding: 100px 0; 
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.hero-overlay { 
+    display: none; 
+}
+.hero-content {
+    position: relative;
+    z-index: 2; 
+    max-width: 800px;
+    margin: 0 auto;
+}
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    opacity: 0.95;
+}
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.hero .btn { font-size: 1rem; padding: 14px 32px; }
+
+
+/* === Sección Categorías === */
+.categories-section {
+    background: var(--bg-light-gray);
+}
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+.category-item {
+    background: var(--bg-body);
+    padding: 30px 25px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-medium);
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: var(--shadow-sm);
+}
+.category-item:hover, .category-item:focus-within {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* MODIFICADO PARA IMÁGENES DE CATEGORÍA */
+.category-icon {
+    width: 100px;  /* Ajusta el tamaño según necesites */
+    height: 100px; /* Ajusta el tamaño según necesites */
+    border-radius: 50%; /* Mantiene la forma circular */
+    margin: 0 auto 20px auto;
+    overflow: hidden; /* Importante para recortar la imagen a la forma del contenedor */
+    border: 3px solid var(--brand-accent-red); /* Borde rojo opcional */
+    box-shadow: var(--shadow-sm); /* Sombra opcional */
+    background-color: #fff; /* Fondo blanco si la imagen tiene transparencia o no llena el espacio */
+}
+
+/* NUEVO PARA ESTILIZAR LA IMAGEN DENTRO DEL CONTENEDOR */
+.category-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 'cover' llena el espacio y recorta. Prueba 'contain' si prefieres. */
+    display: block;
+}
+
+.category-item h3 {
+    font-size: 1.25rem; 
+    margin-bottom: 10px;
+    color: var(--brand-primary-dark);
+}
+.category-item p {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+
+/* === Sección Servicios Destacados === */
+.featured-services-section {
+    background: var(--bg-body);
+}
+.service-item {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+.service-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+.service-image img {
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-md); 
+}
+.service-description {
+    flex: 1.5;
+    min-width: 300px;
+}
+.service-description h3 {
+     color: var(--brand-primary-dark);
+     font-size: 1.65rem;
+}
+.service-description ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+}
+.service-description ul li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    color: var(--text-medium);
+    font-size: 0.95rem;
+}
+.service-description ul li i.fa-check-circle { 
+    color: var(--brand-accent-red);
+    margin-right: 10px;
+    font-size: 1.1rem;
+    margin-top: 3px;
+}
+
+/* === Sección Por qué Elegirnos === */
+.why-us-section {
+     background: var(--bg-light-gray);
+}
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+.reason-item {
+    background: var(--bg-body);
+    padding: 30px 25px;
+    border-radius: var(--border-radius-medium);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.reason-item:hover, .reason-item:focus-within {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+.reason-icon {
+    color: var(--brand-accent-red); 
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+.reason-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--brand-primary-dark);
+}
+.reason-item p {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+
+/* === Sección Marcas === */
+.brands-section {
+    background-color: var(--bg-body);
+    padding: 60px 0;
+}
+.brands-section h2 { margin-bottom: 50px; }
+.brands-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px 40px; /* Podrías necesitar ajustar este gap si los logos se ven muy juntos */
+}
+.brand-logo-item img {
+    max-height: 75px;  /* AJUSTADO: 50% más grande (original 50px) */
+    width: auto;
+    max-width: 195px; /* AJUSTADO: 50% más grande (original 130px) */
+    filter: grayscale(100%) brightness(1.5); 
+    opacity: 0.5; 
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
+}
+.brands-logos img:hover, .brands-logos img:focus { /* También puedes usar .brand-logo-item img:hover */
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+    transform: scale(1.05);
+    outline-color: var(--brand-accent-red);
+}
+
+
+/* === Sección Contacto === */
+.contact-section {
+     background: var(--bg-light-gray);
+}
+.contact-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-medium);
+}
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 40px;
+    align-items: flex-start;
+}
+.contact-details {
+    background-color: var(--bg-body);
+    padding: 30px;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-md);
+}
+.contact-details h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: var(--brand-primary-dark);
+}
+.contact-details p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    color: var(--text-medium);
+    font-size: 0.95rem;
+}
+.contact-details i {
+    color: var(--brand-accent-red);
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+.contact-details a { color: var(--brand-primary-dark); } 
+.contact-details a:hover, .contact-details a:focus { color: var(--brand-accent-red); } 
+
+.contact-map iframe {
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    min-height: 350px;
+}
+
+
+/* === Pie de Página === */
+.site-footer {
+    background: var(--bg-footer);
+    color: #a0aec0; 
+    padding: 60px 0 25px 0;
+    margin-top: 50px;
+    font-size: 0.9rem;
+}
+.site-footer a {
+    color: #cbd5e0; 
+}
+.site-footer a:hover, .site-footer a:focus {
+    color: var(--brand-accent-red); 
+    text-decoration: none;
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 35px;
+    margin-bottom: 40px;
+}
+.footer-logo-img {
+    max-height: 135px; /* AJUSTADO: 50% más grande (original 90px) */
+    width: auto;
+    margin-bottom: 15px;
+}
+.footer-about p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+.footer-links-column h4, .footer-contact-info h4 {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.footer-links-column ul li {
+    margin-bottom: 10px;
+}
+.footer-contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.footer-contact-info p i {
+    margin-right: 10px;
+    font-size: 1rem;
+    width: 18px;
+    text-align: center;
+    color: var(--brand-accent-red); 
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 25px;
+    border-top: 1px solid #313a49; 
+    font-size: 0.85rem;
+    color: #718096; 
+}
+.footer-bottom p { margin-bottom: 0;}
+
+/* === Media Queries para Responsividad (Adaptar según sea necesario) === */
+@media (max-width: 992px) { /* Tablets y pantallas medianas */
+    .hero h1 { font-size: 2.4rem; }
+    .hero p { font-size: 1.1rem; }
+    .service-item { flex-direction: column; }
+    .service-image { margin-bottom: 30px; max-width: 100%; }
+}
+
+@media (max-width: 768px) { /* Tablets pequeñas y móviles grandes */
+    .main-header { height: auto; padding: 10px 0; } 
+    .main-header .container { flex-direction: column; align-items: center; }
+    .logo { margin-bottom: 15px; } 
+    .logo img { height: 90px; } 
+
+    .main-nav ul { flex-direction: column; margin-top: 10px; width: 100%; align-items: center; }
+    .main-nav ul li { margin: 8px 0; width: 100%; text-align: center; }
+    .main-nav ul li a { display: block; padding: 10px; background: var(--bg-light-gray); border-radius: var(--border-radius-soft); }
+    .main-nav ul li a:hover, .main-nav ul li a:focus { background: var(--bg-medium-gray); }
+    .main-nav ul li a::after { display: none; }
+
+    .hero { background-attachment: scroll; }
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .hero-buttons .btn { width: 80%; max-width: 300px; margin-bottom: 10px; }
+
+    .footer-content { grid-template-columns: 1fr; text-align: center; } 
+    .footer-about, .footer-links-column, .footer-contact-info { margin-bottom: 30px; }
+    .footer-logo-img { margin-left: auto; margin-right: auto; max-height: 100px; } 
+    .footer-links-column ul { padding-left: 0; }
+    .footer-contact-info p { justify-content: center; } 
+
+    .category-grid, .reasons-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; } 
+    .category-icon { width: 80px; height: 80px; } /* Ajuste para iconos de categoría en móvil */
+
+
+    .brands-logos { gap: 30px; } 
+    .brand-logo-item img { max-height: 60px; max-width: 150px; } 
+}
+
+@media (max-width: 480px) { /* Móviles pequeños */
+    body { font-size: 15px; } 
+    .top-bar .container { justify-content: center; gap: 10px; font-size: 0.8rem; }
+    .top-bar span { width: 100%; text-align: center; }
+    .hero h1 { font-size: 1.7rem; }
+    .hero p { font-size: 0.95rem; }
+    .contact-details { padding: 20px; }
+    section { padding: 50px 0; } 
+    h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+
+    .logo img { height: 75px; } 
+    .footer-logo-img { max-height: 80px; } 
+    .brand-logo-item img { max-height: 50px; max-width: 120px; } 
+    .category-icon { width: 70px; height: 70px; } /* Ajuste más pequeño para iconos de categoría en móvil */
+}
